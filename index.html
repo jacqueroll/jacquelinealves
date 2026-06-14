@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jacqueline Alves — SEO, GEO e AEO</title>
+<meta name="description" content="Especialista em Conteúdo, SEO, GEO e AEO. Ajudo empresas B2B a serem encontradas e recomendadas onde seus clientes realmente buscam hoje.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#191970;--slate:#6A5ACD;--lilac:#836FFF;
+  --ghost:#F8F8FF;--white:#fff;--text:#3d3d70;
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);background:var(--ghost);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+
+/* NAV */
+nav{background:var(--navy);padding:0 3rem;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-logo{display:flex;align-items:center;gap:.75rem;cursor:pointer}
+.nav-logo svg{width:48px;height:48px}
+.nav-logo-text{line-height:1.1}
+.nav-logo-name{font-size:1.05rem;font-weight:600;color:var(--ghost)}
+.nav-logo-tag{font-size:.65rem;letter-spacing:.18em;color:var(--lilac);text-transform:uppercase}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-size:.9rem;color:rgba(248,248,255,.8);transition:color .15s;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{color:var(--ghost)}
+.nav-cta{background:var(--lilac);color:var(--navy)!important;padding:.5rem 1.25rem;border-radius:6px;font-weight:700;font-size:.85rem!important}
+.nav-cta:hover{opacity:.88}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.5rem}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ghost);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;background:var(--navy);padding:1.5rem 2rem;flex-direction:column;gap:1.25rem}
+.mobile-menu a{color:rgba(248,248,255,.85);font-size:1rem;cursor:pointer}
+.mobile-menu a:hover{color:var(--ghost)}
+.mobile-menu .nav-cta{text-align:center}
+
+/* SECTIONS */
+.page{display:none}
+.page.active{display:block}
+
+/* HERO */
+.hero{background:var(--navy);padding:7rem 3rem 6rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;right:-60px;top:50%;transform:translateY(-50%);opacity:.15;pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:2}
+.hero-tag{display:inline-block;font-size:.72rem;letter-spacing:.22em;color:var(--lilac);border:1px solid var(--lilac);padding:.3rem 1rem;border-radius:999px;margin-bottom:1.5rem;text-transform:uppercase}
+.hero h1{font-size:clamp(2.2rem,4vw,3.4rem);line-height:1.1;font-weight:700;color:var(--ghost);margin-bottom:1.25rem}
+.hero p{font-size:1.1rem;line-height:1.65;color:#C8C5F0;margin-bottom:2.25rem}
+.hero-svg{display:flex;justify-content:center;align-items:center}
+
+/* STATS */
+.stats{background:var(--slate);padding:2.25rem 3rem}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
+.stats strong{display:block;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:.3rem}
+.stats span{font-size:.85rem;color:#E0DDFF;line-height:1.4}
+
+/* SECTION GENERIC */
+.section{padding:6rem 3rem}
+.section-white{background:#fff}
+.section-ghost{background:var(--ghost)}
+.section-navy{background:var(--navy)}
+.wrap{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-header h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:var(--navy);margin-bottom:.75rem}
+.section-header p{font-size:1rem;color:var(--text);max-width:560px;margin:0 auto;line-height:1.65}
+.section-navy .section-header h2{color:var(--ghost)}
+
+/* GRID 2 */
+.grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:center}
+.grid-2 h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:1.25rem}
+.grid-2 p{font-size:1rem;line-height:1.8;color:var(--text);margin-bottom:1rem}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.card{background:#fff;border-radius:16px;padding:2.25rem;border:1px solid #e8e6f8;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(25,25,112,.1)}
+.card-navy{background:var(--navy);border-color:var(--navy)}
+.card-badge{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .85rem;border-radius:999px;margin-bottom:1.25rem;width:fit-content}
+.badge-lilac{background:var(--lilac);color:var(--navy)}
+.badge-light{background:#E8E6F8;color:#483D8B}
+.card h3{font-size:1.05rem;font-weight:700;margin-bottom:.75rem;line-height:1.3}
+.card-navy h3{color:var(--ghost)}
+.card:not(.card-navy) h3{color:var(--navy)}
+.card p{font-size:.92rem;line-height:1.65;flex:1;margin-bottom:1.5rem}
+.card-navy p{color:#C8C5F0}
+.card:not(.card-navy) p{color:var(--text)}
+.card-link{font-size:.88rem;font-weight:700;cursor:pointer}
+.card-navy .card-link{color:var(--lilac)}
+.card:not(.card-navy) .card-link{color:var(--slate)}
+
+/* DEPOIMENTOS */
+.depo-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:900px;margin:0 auto}
+.depo-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:2.25rem}
+.depo-card p{font-size:.97rem;line-height:1.75;color:#D9D6FB;margin-bottom:1.25rem;font-style:italic}
+.depo-name{font-size:.85rem;font-weight:700;color:var(--lilac)}
+
+/* CTA SECTION */
+.cta-section{text-align:center}
+.cta-section h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;margin-bottom:1.75rem}
+.section-ghost .cta-section h2{color:var(--navy)}
+.section-navy .cta-section h2{color:var(--ghost)}
+.section-navy .cta-section p{color:#C8C5F0;margin-bottom:2rem}
+
+/* BUTTON */
+.btn{display:inline-block;font-weight:700;font-size:.95rem;padding:.9rem 1.9rem;border-radius:8px;cursor:pointer;transition:opacity .15s;border:none}
+.btn-lilac{background:var(--lilac);color:var(--navy)}
+.btn-navy{background:var(--navy);color:var(--ghost)}
+.btn-white{background:#fff;color:var(--navy)}
+.btn:hover{opacity:.85}
+
+/* FOOTER */
+footer{background:var(--navy);padding:4rem 3rem 2rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:4rem;margin-bottom:2rem}
+.footer-name{font-size:1.1rem;font-weight:600;color:var(--ghost);margin-bottom:.25rem}
+.footer-tag{font-size:.75rem;letter-spacing:.18em;color:var(--lilac);text-transform:uppercase;margin-bottom:1.25rem}
+footer p{font-size:.9rem;color:#C8C5F0;line-height:1.7;margin-bottom:.5rem}
+footer h4{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--lilac);margin-bottom:1rem}
+footer ul{list-style:none}
+footer ul li{margin-bottom:.6rem}
+footer ul li a,footer ul li span{font-size:.9rem;color:#C8C5F0;cursor:pointer}
+footer ul li a:hover,footer ul li span:hover{color:var(--lilac)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between}
+.footer-bottom p{font-size:.78rem;color:#9896CC;margin:0}
+
+/* PAGE HERO (inner pages) */
+.page-hero{background:var(--navy);padding:6rem 3rem 5rem}
+.page-hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.page-hero h1{font-size:clamp(2rem,3.5vw,3rem);line-height:1.12;font-weight:700;color:var(--ghost);margin-bottom:1.25rem}
+.page-hero p{font-size:1.05rem;line-height:1.7;color:#C8C5F0;margin-bottom:2rem}
+
+/* DETAIL CARDS */
+.detail-cards{display:flex;flex-direction:column;gap:1rem}
+.detail-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1.25rem 1.5rem;display:flex;align-items:flex-start;gap:1rem}
+.detail-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.detail-card h4{font-size:.9rem;font-weight:700;color:var(--ghost);margin-bottom:.25rem}
+.detail-card p{font-size:.82rem;color:#C8C5F0;margin:0;line-height:1.55}
+
+/* INCLUDES */
+.includes{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.include-item{background:#fff;border:1px solid #e8e6f8;border-radius:14px;padding:1.75rem;display:flex;gap:1.25rem;align-items:flex-start}
+.include-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:.35rem}
+.include-item h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.include-item p{font-size:.88rem;line-height:1.6;color:var(--text);margin:0}
+.include-full{grid-column:1/-1}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;position:relative;margin-top:1rem}
+.steps::before{content:'';position:absolute;top:22px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--navy),var(--slate));z-index:0}
+.step{text-align:center;position:relative;z-index:1}
+.step-num{width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--ghost);font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;border:3px solid var(--ghost)}
+.section-ghost .step-num{box-shadow:0 0 0 3px var(--ghost)}
+.step h4{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.step p{font-size:.8rem;color:var(--text);line-height:1.5}
+
+/* DELIVERABLES */
+.deliverables{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.del{background:#fff;border:1px solid #e8e6f8;border-radius:14px;padding:1.75rem;text-align:center}
+.del-icon{font-size:2rem;margin-bottom:.75rem}
+.del h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.del p{font-size:.85rem;color:var(--text);line-height:1.55}
+
+/* AVISO */
+.aviso{background:#f0eeff;border-left:4px solid var(--slate);border-radius:0 12px 12px 0;padding:1.5rem 2rem;margin-top:3rem}
+.aviso p{font-size:.92rem;color:#3d3d70;line-height:1.7}
+
+/* SOBRE */
+.sobre-text{max-width:800px;margin:0 auto}
+.sobre-text h2{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:700;color:var(--navy);margin-bottom:1.25rem}
+.sobre-text p{font-size:1.05rem;line-height:1.85;color:var(--text);margin-bottom:1.25rem}
+.trait-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.5rem}
+.trait{background:#f0eeff;border-left:4px solid var(--slate);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem}
+.trait strong{display:block;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+.trait p{font-size:.88rem;color:var(--text);line-height:1.6;margin:0}
+
+/* TRAJ */
+.traj-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.traj-card{background:#fff;border:1px solid #e8e6f8;border-radius:14px;padding:1.75rem}
+.traj-label{font-size:.72rem;letter-spacing:.18em;color:var(--lilac);text-transform:uppercase;font-weight:700;margin-bottom:.75rem}
+.traj-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.traj-card p{font-size:.88rem;color:var(--text);line-height:1.6}
+
+/* CONTATO */
+.contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1000px;margin:0 auto}
+.form-box{background:#fff;border:1px solid #e8e6f8;border-radius:20px;padding:3rem}
+.form-group{margin-bottom:1.5rem}
+.form-group label{display:block;font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.85rem 1.1rem;border:1.5px solid #e8e6f8;border-radius:8px;font-size:.95rem;color:var(--navy);font-family:inherit;outline:none;transition:border-color .15s;background:#fff}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--slate)}
+.form-group textarea{resize:vertical}
+.form-note{font-size:.82rem;color:#9896CC;line-height:1.6;margin-bottom:1.5rem}
+.faq-list{display:flex;flex-direction:column;gap:1rem}
+.faq-item{background:var(--ghost);border-radius:12px;padding:1.5rem 2rem}
+.faq-item h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.faq-item p{font-size:.92rem;color:var(--text);line-height:1.65;margin:0}
+.servicos-lista{display:flex;flex-direction:column;gap:3rem}
+.servico-row{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;padding-bottom:3rem;border-bottom:1px solid #e8e6f8}
+.servico-row:last-child{border-bottom:none}
+.servico-resumo{background:var(--ghost);border-radius:16px;padding:2rem}
+.servico-resumo h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:1.5rem}
+.resumo-linha{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid #e8e6f8;font-size:.9rem}
+.resumo-linha:last-child{border-bottom:none}
+.resumo-label{color:var(--text)}
+.resumo-val{font-weight:600;color:var(--navy)}
+.check-list{list-style:none;margin:1rem 0 1.5rem}
+.check-list li{padding:.4rem 0;border-bottom:1px solid #f0eeff;font-size:.95rem;color:var(--text)}
+.check-list li::before{content:"✓  ";color:var(--slate);font-weight:700}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero-inner,.page-hero-inner,.grid-2,.cards,.depo-grid,.includes,.deliverables,.footer-inner,.contato-grid,.servico-row,.traj-cards,.trait-grid{grid-template-columns:1fr;gap:2.5rem}
+  .stats-inner{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps::before{display:none}
+  .hero-svg,.hero-bg{display:none}
+  nav,.hero,.section,.stats,.page-hero,footer{padding-left:1.5rem;padding-right:1.5rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .mobile-menu.open{display:flex}
+  .nav-inner{height:60px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="18" fill="none" stroke="#F8F8FF" stroke-width="2.5"/>
+        <circle cx="37" cy="13" r="8" fill="#6A5ACD" opacity=".9"/>
+        <circle cx="13" cy="37" r="6" fill="#836FFF" opacity=".85"/>
+        <circle cx="24" cy="24" r="6" fill="#F8F8FF"/>
+      </svg>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name">Jacqueline Alves</div>
+        <div class="nav-logo-tag">SEO · GEO · AEO</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a onclick="showPage('home')" id="nav-home">Home</a>
+      <a onclick="showPage('sobre')" id="nav-sobre">Sobre mim</a>
+      <a onclick="showPage('servicos')" id="nav-servicos">Serviços</a>
+      <a onclick="showPage('auditoria')" id="nav-auditoria">Auditoria</a>
+      <a onclick="showPage('contato')" id="nav-contato" class="nav-cta">Contato</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a onclick="showPage('home');toggleMenu()">Home</a>
+    <a onclick="showPage('sobre');toggleMenu()">Sobre mim</a>
+    <a onclick="showPage('servicos');toggleMenu()">Serviços</a>
+    <a onclick="showPage('auditoria');toggleMenu()">Auditoria</a>
+    <a onclick="showPage('contato');toggleMenu()" class="nav-cta">Contato</a>
+  </div>
+</nav>
+
+<!-- ======== HOME ======== -->
+<div id="page-home" class="page active">
+
+<section class="hero">
+  <svg class="hero-bg" width="500" height="500" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="110" cy="110" r="80" fill="none" stroke="#F8F8FF" stroke-width="1"/>
+    <circle cx="110" cy="110" r="55" fill="none" stroke="#F8F8FF" stroke-width="1"/>
+    <ellipse cx="110" cy="110" rx="80" ry="28" fill="none" stroke="#836FFF" stroke-width="1.5" transform="rotate(-20 110 110)"/>
+    <circle cx="168" cy="72" r="18" fill="#6A5ACD" opacity=".9"/>
+    <circle cx="55" cy="155" r="13" fill="#836FFF" opacity=".85"/>
+    <circle cx="110" cy="110" r="22" fill="#191970" stroke="#F8F8FF" stroke-width="1.5"/>
+    <circle cx="110" cy="110" r="10" fill="#F8F8FF" opacity=".9"/>
+  </svg>
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">SEO · GEO · AEO</span>
+      <h1>Sua empresa está pronta para ser encontrada pelas IAs?</h1>
+      <p>Conteúdo e SEO técnico, agora combinados com GEO e AEO, para que sua empresa seja encontrada e citada pelo Google, pelo ChatGPT, pelo Gemini e por quem decide o próximo fornecedor.</p>
+      <button class="btn btn-lilac" onclick="showPage('auditoria')">Solicite sua Auditoria de Visibilidade em IA</button>
+    </div>
+    <div class="hero-svg">
+      <svg viewBox="0 0 220 220" style="width:min(380px,100%);height:auto;opacity:.9;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="110" cy="110" r="80" fill="none" stroke="rgba(248,248,255,0.15)" stroke-width="1"/>
+        <circle cx="110" cy="110" r="55" fill="none" stroke="rgba(248,248,255,0.2)" stroke-width="1"/>
+        <ellipse cx="110" cy="110" rx="80" ry="28" fill="none" stroke="rgba(131,111,255,0.4)" stroke-width="1.5" transform="rotate(-20 110 110)"/>
+        <circle cx="168" cy="72" r="18" fill="#6A5ACD" opacity=".9"/>
+        <circle cx="55" cy="155" r="13" fill="#836FFF" opacity=".85"/>
+        <circle cx="110" cy="110" r="22" fill="#191970" stroke="rgba(248,248,255,0.3)" stroke-width="1.5"/>
+        <circle cx="110" cy="110" r="10" fill="#F8F8FF" opacity=".9"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-inner">
+    <div><strong>15+</strong><span>anos de experiência em marketing digital</span></div>
+    <div><strong>B3 · PicPay · SAP Concur · D2L · AVPIA</strong><span>empresas onde já atuei</span></div>
+    <div><strong>GEO / LLM SEO</strong><span>certificação aplicada na prática</span></div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap grid-2">
+    <div>
+      <h2>A primeira página do Google deixou de ser a única primeira página</h2>
+      <p>Por anos, ranquear bem no Google era sinônimo de ser encontrado. Hoje, uma parte cada vez maior das decisões de compra começa numa conversa com o ChatGPT, o Gemini ou o Copilot. Se sua marca não está nas fontes que essas IAs consultam, ela simplesmente não existe nessa conversa.</p>
+      <p>A boa notícia: os fundamentos não mudaram tanto quanto parecem. Conteúdo estruturado, autoridade de domínio e SEO técnico continuam sendo a base, só que agora servem dois leitores ao mesmo tempo: o buscador tradicional e o modelo de linguagem.</p>
+    </div>
+    <div style="display:flex;justify-content:center;">
+      <svg viewBox="0 0 180 180" style="width:min(300px,100%);height:auto;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="90" cy="90" r="62" fill="none" stroke="#e8e6f8" stroke-width="2"/>
+        <ellipse cx="90" cy="90" rx="62" ry="22" fill="none" stroke="#6A5ACD" stroke-width="1.5" stroke-dasharray="4 3" transform="rotate(-15 90 90)" opacity=".5"/>
+        <circle cx="138" cy="58" r="16" fill="#6A5ACD" opacity=".9"/>
+        <circle cx="46" cy="128" r="11" fill="#836FFF" opacity=".85"/>
+        <circle cx="90" cy="90" r="18" fill="#191970"/>
+        <circle cx="90" cy="90" r="8" fill="#F8F8FF" opacity=".9"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section section-ghost">
+  <div class="wrap">
+    <div class="section-header">
+      <h2>Como posso ajudar</h2>
+      <p>Cada empresa está em um momento diferente dessa transição. Por isso, organizo minha atuação em três formatos.</p>
+    </div>
+    <div class="cards">
+      <div class="card card-navy">
+        <span class="card-badge badge-lilac">Ponto de partida</span>
+        <h3>Auditoria de Visibilidade em IA + SEO Técnico</h3>
+        <p>Diagnóstico completo de como sua marca aparece no Google e nas IAs, comparada à concorrência. Entrega relatório e plano de ação priorizado.</p>
+        <span class="card-link" onclick="showPage('auditoria')">Saiba mais →</span>
+      </div>
+      <div class="card">
+        <span class="card-badge badge-light">Recorrência</span>
+        <h3>Consultoria Contínua para B2B SaaS</h3>
+        <p>Para empresas que já sabem onde precisam chegar e querem um parceiro recorrente para conduzir conteúdo, SEO técnico e GEO/AEO no dia a dia.</p>
+        <span class="card-link" onclick="showPage('servicos')">Saiba mais →</span>
+      </div>
+      <div class="card">
+        <span class="card-badge badge-light">Pontual</span>
+        <h3>Implementações Técnicas</h3>
+        <p>Projetos pontuais de dados estruturados, FAQs otimizados para IAs e reestruturação de conteúdo existente com foco em SEO e GEO/AEO.</p>
+        <span class="card-link" onclick="showPage('servicos')">Saiba mais →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-navy">
+  <div class="wrap">
+    <div class="section-header"><h2>O que dizem sobre meu trabalho</h2></div>
+    <div class="depo-grid">
+      <div class="depo-card">
+        <p>"Gostaria de destacar a capacidade da Jacqueline de resolver problemas e propor novas ações e soluções a fim de gerar melhores resultados. Ela possui sólidas competências técnicas e uma excelente visão estratégica, de planejamento e análise de resultados."</p>
+        <span class="depo-name">Gabriel Duque</span>
+      </div>
+      <div class="depo-card">
+        <p>"Jacqueline é a porta-voz quando o assunto é SEO. Sempre com argumentos embasados, ótima postura e protagonismo, contribui em qualquer discussão que está envolvida. Com certeza terá sucesso em todos os desafios que decidir abraçar."</p>
+        <span class="depo-name">Raquel Oka</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-ghost cta-section">
+  <div class="wrap">
+    <h2>Quer saber onde sua marca está e onde ela deveria estar?</h2>
+    <button class="btn btn-navy" onclick="showPage('contato')">Solicite sua Auditoria de Visibilidade em IA</button>
+  </div>
+</section>
+
+</div><!-- /home -->
+
+<!-- ======== AUDITORIA ======== -->
+<div id="page-auditoria" class="page">
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <span class="hero-tag">Serviço · Ponto de partida</span>
+      <h1>Auditoria de Visibilidade em IA + SEO Técnico</h1>
+      <p>Um diagnóstico completo, com prazo e escopo definidos, que mostra exatamente onde sua empresa está sendo encontrada hoje, onde ela deveria estar e o que fazer para chegar lá.</p>
+      <button class="btn btn-lilac" onclick="showPage('contato')">Solicite sua Auditoria</button>
+    </div>
+    <div class="detail-cards">
+      <div class="detail-card">
+        <div class="detail-icon" style="background:rgba(131,111,255,.2)">🔍</div>
+        <div><h4>Diagnóstico real</h4><p>Testamos como sua marca aparece nas IAs com prompts reais que seus clientes usariam.</p></div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon" style="background:rgba(106,90,205,.2)">📈</div>
+        <div><h4>SEO técnico completo</h4><p>Semrush, Ahrefs, Screaming Frog, GSC e GA4 — auditoria técnica com as principais ferramentas.</p></div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon" style="background:rgba(131,111,255,.2)">⏱</div>
+        <div><h4>Prazo de 2 a 3 semanas</h4><p>Escopo fechado, entrega previsível. Sem projetos que não terminam.</p></div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-icon" style="background:rgba(106,90,205,.2)">📋</div>
+        <div><h4>Plano de ação priorizado</h4><p>Você sai com recomendações organizadas por impacto e esforço.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap">
+    <div class="section-header"><h2>O que está incluído</h2><p>Cinco frentes de análise que cobrem tanto o buscador tradicional quanto as IAs generativas.</p></div>
+    <div class="includes">
+      <div class="include-item"><div class="include-dot" style="background:var(--navy)"></div><div><h3>Auditoria técnica de SEO</h3><p>Análise on-page, performance, indexação e estrutura do site com Semrush, Ahrefs, Screaming Frog, Google Search Console e GA4.</p></div></div>
+      <div class="include-item"><div class="include-dot" style="background:var(--slate)"></div><div><h3>Diagnóstico de visibilidade em IA</h3><p>Testes de perguntas reais que seus potenciais clientes fariam ao ChatGPT, Gemini, Perplexity e Copilot, comparando sua marca com a concorrência.</p></div></div>
+      <div class="include-item"><div class="include-dot" style="background:var(--lilac)"></div><div><h3>Análise de concorrência</h3><p>Mapeamento de como os principais concorrentes aparecem no Google e nas IAs, identificando gaps e oportunidades de diferenciação.</p></div></div>
+      <div class="include-item"><div class="include-dot" style="background:#483D8B"></div><div><h3>Mapa de oportunidades de conteúdo</h3><p>Lacunas entre o que sua empresa publica e o que está sendo perguntado às IAs sobre o seu mercado.</p></div></div>
+      <div class="include-item include-full"><div class="include-dot" style="background:var(--navy)"></div><div><h3>Plano de ação priorizado</h3><p>Lista de recomendações organizadas por impacto e esforço, prontas para execução pelo seu time ou em projeto futuro comigo.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-ghost">
+  <div class="wrap">
+    <div class="section-header"><h2>Como funciona</h2><p>Cinco etapas com cronograma definido desde o início.</p></div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h4>Briefing inicial</h4><p>Entendimento do negócio, concorrentes e personas</p></div>
+      <div class="step"><div class="step-num">2</div><h4>Coleta de dados</h4><p>Análise técnica e de conteúdo com as principais ferramentas</p></div>
+      <div class="step"><div class="step-num">3</div><h4>Testes em IAs</h4><p>Prompts reais em ChatGPT, Gemini, Perplexity e Copilot</p></div>
+      <div class="step"><div class="step-num">4</div><h4>Consolidação</h4><p>Relatório completo e plano de ação priorizado</p></div>
+      <div class="step"><div class="step-num">5</div><h4>Apresentação</h4><p>Call de apresentação da auditoria e alinhamento de dúvidas</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap">
+    <div class="section-header"><h2>Entregáveis</h2><p>O que você recebe ao final do projeto.</p></div>
+    <div class="deliverables">
+      <div class="del"><div class="del-icon">📄</div><h3>Relatório completo</h3><p>Documento detalhado com todos os achados da auditoria técnica e de visibilidade em IA.</p></div>
+      <div class="del"><div class="del-icon">✅</div><h3>Plano de ação</h3><p>Recomendações priorizadas por impacto e esforço, prontas para execução.</p></div>
+      <div class="del"><div class="del-icon">🎙</div><h3>Sessão de apresentação</h3><p>Call para apresentar os resultados, tirar dúvidas e alinhar os próximos passos.</p></div>
+    </div>
+    <div class="aviso"><p><strong>Sobre minha atuação como consultora:</strong> minha responsabilidade é a reestruturação e a implementação da base orientada à inteligência artificial, SEO, GEO e AEO. Os resultados de negócio dependem de fatores que vão além do conteúdo e da estrutura do site e não são, portanto, garantidos por este serviço.</p></div>
+  </div>
+</section>
+
+<section class="section section-ghost">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center">
+    <div>
+      <div class="section-header" style="text-align:left;margin-bottom:1.5rem"><h2>Para quem é</h2></div>
+      <p style="font-size:1rem;line-height:1.75;color:var(--text);margin-bottom:1rem">Empresas B2B, especialmente SaaS, que já investem em conteúdo e SEO mas não sabem como estão posicionadas nas IAs generativas.</p>
+      <p style="font-size:1rem;line-height:1.75;color:var(--text);margin-bottom:1.5rem">Se você não tem certeza de qual serviço faz mais sentido para o seu momento, a Auditoria é o caminho mais indicado.</p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        <span style="background:#E8E6F8;color:#483D8B;font-size:.8rem;font-weight:700;padding:.4rem 1rem;border-radius:999px">B2B SaaS</span>
+        <span style="background:#E8E6F8;color:#483D8B;font-size:.8rem;font-weight:700;padding:.4rem 1rem;border-radius:999px">Marketing digital</span>
+        <span style="background:#E8E6F8;color:#483D8B;font-size:.8rem;font-weight:700;padding:.4rem 1rem;border-radius:999px">Empresas em transição digital</span>
+      </div>
+    </div>
+    <div style="background:var(--navy);border-radius:16px;padding:2.5rem">
+      <h3 style="font-size:1.1rem;font-weight:700;color:var(--ghost);margin-bottom:1.5rem">Investimento</h3>
+      <p style="font-size:.95rem;color:#C8C5F0;line-height:1.7;margin-bottom:1rem">Sob consulta, de acordo com o tamanho e a complexidade do projeto.</p>
+      <p style="font-size:.95rem;color:#C8C5F0;line-height:1.7;margin-bottom:2rem">Prazo: <strong style="color:var(--ghost)">2 a 3 semanas</strong> após o briefing inicial.</p>
+      <button class="btn btn-lilac" onclick="showPage('contato')" style="width:100%;text-align:center">Solicite sua Auditoria</button>
+    </div>
+  </div>
+</section>
+
+<section class="section section-navy cta-section">
+  <div class="wrap">
+    <h2>Pronto para saber onde sua marca está nas IAs?</h2>
+    <p>Preencha o formulário de contato e eu retorno em até 1 dia útil.</p>
+    <button class="btn btn-lilac" onclick="showPage('contato')">Solicite sua Auditoria de Visibilidade em IA</button>
+  </div>
+</section>
+
+</div><!-- /auditoria -->
+
+<!-- ======== SERVIÇOS ======== -->
+<div id="page-servicos" class="page">
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <span class="hero-tag">O que eu ofereço</span>
+      <h1>Três formatos para o momento certo da sua empresa</h1>
+      <p>Cada empresa está em um estágio diferente na transição para a busca por IA. Por isso, organizo minha atuação em três formatos, desenhados para atender desde o diagnóstico inicial até a parceria contínua.</p>
+    </div>
+    <div class="detail-cards">
+      <div class="detail-card"><div class="detail-icon" style="background:rgba(131,111,255,.2)">🔍</div><div><h4>Auditoria de Visibilidade em IA</h4><p>Diagnóstico completo com prazo e escopo fechados</p></div></div>
+      <div class="detail-card"><div class="detail-icon" style="background:rgba(106,90,205,.2)">📈</div><div><h4>Consultoria Contínua B2B SaaS</h4><p>Parceria mensal ou trimestral para quem já sabe onde quer chegar</p></div></div>
+      <div class="detail-card"><div class="detail-icon" style="background:rgba(131,111,255,.2)">⚙️</div><div><h4>Implementações Técnicas</h4><p>Projetos pontuais de dados estruturados e otimização para IA</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap">
+    <div class="servicos-lista">
+      <div class="servico-row">
+        <div>
+          <span class="card-badge" style="background:var(--navy);color:var(--ghost);margin-bottom:1rem">Ponto de partida recomendado</span>
+          <h2 style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--navy);margin-bottom:1rem;margin-top:.75rem">Auditoria de Visibilidade em IA + SEO Técnico</h2>
+          <p style="font-size:1rem;line-height:1.75;color:var(--text);margin-bottom:1rem">Um diagnóstico completo de como sua marca aparece hoje no Google e nas principais IAs generativas, comparada à concorrência, com um plano de ação priorizado.</p>
+          <ul class="check-list">
+            <li>Auditoria técnica de SEO (Semrush, Ahrefs, GSC, GA4)</li>
+            <li>Testes de visibilidade em ChatGPT, Gemini, Perplexity e Copilot</li>
+            <li>Análise de concorrência e mapa de oportunidades</li>
+            <li>Plano de ação priorizado por impacto e esforço</li>
+            <li>Sessão de apresentação e alinhamento</li>
+          </ul>
+          <button class="btn btn-navy" onclick="showPage('auditoria')">Ver detalhes da Auditoria →</button>
+        </div>
+        <div class="servico-resumo">
+          <h3>Em resumo</h3>
+          <div class="resumo-linha"><span class="resumo-label">Formato</span><span class="resumo-val">Projeto fechado</span></div>
+          <div class="resumo-linha"><span class="resumo-label">Prazo</span><span class="resumo-val">2 a 3 semanas</span></div>
+          <div class="resumo-linha"><span class="resumo-label">Investimento</span><span class="resumo-val">Sob consulta</span></div>
+          <div class="resumo-linha"><span class="resumo-label">Ideal para</span><span class="resumo-val">B2B SaaS</span></div>
+        </div>
+      </div>
+      <div class="servico-row">
+        <div>
+          <span class="card-badge badge-light">Recorrência</span>
+          <h2 style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--navy);margin-bottom:1rem;margin-top:.75rem">Consultoria Contínua para B2B SaaS</h2>
+          <p style="font-size:1rem;line-height:1.75;color:var(--text);margin-bottom:1rem">Para empresas que já sabem onde precisam chegar e querem um parceiro recorrente para conduzir conteúdo, SEO técnico e GEO/AEO no dia a dia.</p>
+          <ul class="check-list">
+            <li>Estratégia de conteúdo orientada a GEO e AEO</li>
+            <li>SEO técnico contínuo e monitoramento de visibilidade em IA</li>
+            <li>Revisão e otimização de conteúdo existente</li>
+            <li>Relatórios periódicos e alinhamento de prioridades</li>
+          </ul>
+          <button class="btn btn-navy" onclick="showPage('contato')">Solicite uma conversa →</button>
+        </div>
+        <div class="servico-resumo">
+          <h3>Em resumo</h3>
+          <div class="resumo-linha"><span class="resumo-label">Formato</span><span class="resumo-val">Retainer mensal</span></div>
+          <div class="resumo-linha"><span class="resumo-label">Ciclo</span><span class="resumo-val">Mensal ou trimestral</span></div>
+          <div class="resumo-linha"><span class="resumo-label">Investimento</span><span class="resumo-val">Sob consulta</span></div>
+          <div class="resumo-linha"><span class="resumo-label">Ideal para</span><span class="resumo-val">B2B SaaS em crescimento</span></div>
+        </div>
+      </div>
+      <div class="servico-row">
+        <div>
+          <span class="card-badge badge-light">Pontual</span>
+          <h2 style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--navy);margin-bottom:1rem;margin-top:.75rem">Implementações Técnicas</h2>
+          <p style="font-size:1rem;line-height:1.75;color:var(--text);margin-bottom:1rem">Projetos pontuais para empresas que já têm clareza do que precisam: dados estruturados, FAQs otimizados para resposta de IA, reestruturação de conteúdo existente.</p>
+          <ul class="check-list">
+            <li>Implementação de schema markup e dados estruturados</li>
+            <li>FAQs e conteúdo otimizado para resposta de IA</li>
+            <li>Reestruturação de conteúdo existente para GEO/AEO</li>
+          </ul>
+          <button class="btn btn-navy" onclick="showPage('contato')">Solicite uma conversa →</button>
+        </div>
+        <div class="servico-resumo">
+          <h3>Em resumo</h3>
+          <div class="resumo-linha"><span class="resumo-label">Formato</span><span class="resumo-val">Projeto pontual</span></div>
+          <div class="resumo-linha"><span class="resumo-label">Prazo</span><span class="resumo-val">Conforme escopo</span></div>
+          <div class="resumo-linha"><span class="resumo-label">Investimento</span><span class="resumo-val">Sob consulta</span></div>
+          <div class="resumo-linha"><span class="resumo-label">Ideal para</span><span class="resumo-val">Melhorias específicas</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-navy cta-section">
+  <div class="wrap">
+    <h2>Não sabe por onde começar?</h2>
+    <p>A Auditoria de Visibilidade em IA é o ponto de partida mais recomendado. Em 2 a 3 semanas você tem um diagnóstico completo e sabe exatamente o que fazer a seguir.</p>
+    <button class="btn btn-lilac" onclick="showPage('auditoria')">Saiba mais sobre a Auditoria →</button>
+  </div>
+</section>
+
+</div><!-- /servicos -->
+
+<!-- ======== SOBRE ======== -->
+<div id="page-sobre" class="page">
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <span class="hero-tag">Sobre mim</span>
+      <h1>15 anos de marketing digital e uma viração que eu não esperava</h1>
+      <p>Comecei na publicidade, migrei para o digital e passei mais de uma década acreditando que dominar o Google era o suficiente. Não era. E entender isso me fez recomeçar, dessa vez do lado certo da mudança.</p>
+    </div>
+    <div style="display:flex;justify-content:center;align-items:center;">
+      <svg viewBox="0 0 200 200" style="width:min(280px,100%);height:auto;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="100" cy="100" r="75" fill="rgba(248,248,255,0.08)" stroke="rgba(248,248,255,0.2)" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="50" fill="rgba(131,111,255,0.12)" stroke="rgba(131,111,255,0.3)" stroke-width="1"/>
+        <circle cx="100" cy="100" r="28" fill="#191970" stroke="#F8F8FF" stroke-width="2"/>
+        <circle cx="100" cy="100" r="12" fill="#F8F8FF"/>
+        <circle cx="152" cy="60" r="14" fill="#6A5ACD" opacity=".9"/>
+        <circle cx="52" cy="148" r="10" fill="#836FFF" opacity=".85"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap sobre-text">
+    <h2>Da resistência à certificação</h2>
+    <p>Fui uma das únicas pessoas da minha turma a resistir ativamente à adoção de IA no trabalho. Por quase dois anos, argumentei, questionei e, honestamente, ignorei o quanto aquilo estava mudando o terreno sob os meus pés.</p>
+    <p>O que me fez mudar não foi um episódio dramático. Foi perceber, no dia a dia com clientes, que as perguntas que antes chegavam via Google começavam a ser respondidas por outras fontes, e que minha marca não estava em nenhuma delas.</p>
+    <p>Decidi entender o que estava acontecendo de verdade. Fiz a imersão da Alura em IA, me certifiquei em GEO e LLM SEO, e comecei a integrar tudo isso ao que já sabia fazer bem: conteúdo, SEO técnico e estratégia de visibilidade.</p>
+    <p>Esse é o trabalho que faço hoje. Não é sobre substituir o SEO por algo novo. É sobre entender que o leitor mudou, e que a base continua sendo a mesma: conteúdo que responde perguntas reais, estrutura que facilita a leitura, autoridade construída ao longo do tempo.</p>
+  </div>
+</section>
+
+<section class="section section-ghost">
+  <div class="wrap">
+    <div class="section-header"><h2>Trajetória</h2><p>15 anos entre agências, empresas e projetos que me ensinaram que estratégia sem execução não existe.</p></div>
+    <div class="traj-cards">
+      <div class="traj-card"><div class="traj-label">Formação</div><h3>Comunicação & Design Instrucional</h3><p>Graduação em Publicidade e Propaganda + pós-graduação em Design Instrucional. A combinação que explica como penso conteúdo.</p></div>
+      <div class="traj-card"><div class="traj-label">Experiência</div><h3>B3, PicPay, SAP Concur, D2L, AVPIA</h3><p>De agência a empresas de grande porte, passando por SaaS B2B e fintechs. Atuei em SEO, conteúdo, mídia paga e estratégia digital.</p></div>
+      <div class="traj-card"><div class="traj-label">Especialização atual</div><h3>GEO, AEO e LLM SEO</h3><p>Certificação em GEO/LLM SEO aplicada na prática, com foco em visibilidade de marca nas IAs generativas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap sobre-text">
+    <h2>O que me diferencia</h2>
+    <p>Não sou a consultora que entrega um relatório de 80 páginas e some. Trabalho com escopo fechado, comunicação direta e planos de ação que o seu time consegue de fato executar.</p>
+    <div class="trait-grid">
+      <div class="trait"><strong>Técnica + estratégia</strong><p>SEO técnico e visão de negócio no mesmo pacote. Não delego o que é estratégico para terceiros.</p></div>
+      <div class="trait"><strong>Escopo honesto</strong><p>Entrego o que prometo, no prazo combinado. Se não é possível, digo antes de começar.</p></div>
+      <div class="trait"><strong>GEO/AEO na prática</strong><p>Não é teoria. Trabalho com testes reais nas IAs e ajustes baseados no que elas efetivamente respondem.</p></div>
+      <div class="trait"><strong>Visão de longo prazo</strong><p>Construo bases. Não vendo atalhos que quebram na próxima atualização de algoritmo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-navy cta-section">
+  <div class="wrap">
+    <h2>Vamos conversar?</h2>
+    <p>Se o que você leu faz sentido para o momento da sua empresa, o próximo passo é simples.</p>
+    <button class="btn btn-lilac" onclick="showPage('contato')">Entre em contato →</button>
+  </div>
+</section>
+
+</div><!-- /sobre -->
+
+<!-- ======== CONTATO ======== -->
+<div id="page-contato" class="page">
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <span class="hero-tag">Contato</span>
+      <h1>Vamos ver se faz sentido trabalharmos juntos?</h1>
+      <p>Preencha o formulário com uma breve descrição do seu momento. Retorno em até 1 dia útil.</p>
+    </div>
+    <div class="detail-cards">
+      <div class="detail-card"><div class="detail-icon" style="background:rgba(131,111,255,.2)">⏱</div><div><h4>Retorno rápido</h4><p>Respondo em até 1 dia útil para agendar uma conversa inicial sem compromisso.</p></div></div>
+      <div class="detail-card"><div class="detail-icon" style="background:rgba(106,90,205,.2)">📋</div><div><h4>Sem pitch genérico</h4><p>A conversa inicial é para entender o seu cenário. Só proponho algo se fizer sentido.</p></div></div>
+      <div class="detail-card"><div class="detail-icon" style="background:rgba(131,111,255,.2)">🌐</div><div><h4>100% remoto</h4><p>Atendo empresas no Brasil e no exterior. Sem limitação geográfica.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-ghost">
+  <div class="wrap">
+    <div class="contato-grid">
+      <div class="form-box">
+        <h2 style="font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:2rem">Envie sua mensagem</h2>
+        <div class="form-group"><label>Nome completo</label><input type="text" placeholder="Seu nome"></div>
+        <div class="form-group"><label>E-mail profissional</label><input type="email" placeholder="seu@email.com.br"></div>
+        <div class="form-group"><label>Empresa</label><input type="text" placeholder="Nome da empresa"></div>
+        <div class="form-group"><label>O que você está buscando?</label>
+          <select>
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option>Auditoria de Visibilidade em IA + SEO Técnico</option>
+            <option>Consultoria Contínua para B2B SaaS</option>
+            <option>Implementações Técnicas</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Conte um pouco sobre o seu momento</label><textarea rows="5" placeholder="Descreva brevemente o cenário atual da sua empresa, o que já foi feito em SEO/conteúdo e o que você espera alcançar."></textarea></div>
+        <p class="form-note">Ao enviar, você concorda que suas informações serão usadas exclusivamente para retorno de contato comercial, sem repasse a terceiros.</p>
+        <a href="mailto:contato@jacquelinealves.com.br" class="btn btn-navy" style="display:block;text-align:center">Enviar mensagem</a>
+        <p style="text-align:center;font-size:.85rem;color:#9896CC;margin-top:1.25rem">Ou escreva diretamente para <a href="mailto:contato@jacquelinealves.com.br" style="color:var(--slate);font-weight:600">contato@jacquelinealves.com.br</a></p>
+      </div>
+      <div>
+        <h3 style="font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:1.5rem">Perguntas frequentes</h3>
+        <div class="faq-list">
+          <div class="faq-item"><h3>Por onde devo começar se não sei o que preciso?</h3><p>A Auditoria de Visibilidade em IA é o ponto de partida mais indicado. Ela mapeia o cenário atual e aponta qual caminho faz mais sentido.</p></div>
+          <div class="faq-item"><h3>Você atende empresas fora do Brasil?</h3><p>Sim. Atendo empresas no Brasil, LATAM e Estados Unidos. Todo o trabalho é remoto.</p></div>
+          <div class="faq-item"><h3>Quanto tempo leva para começar?</h3><p>Após a conversa inicial e o alinhamento de escopo, projetos costumam começar em até duas semanas.</p></div>
+          <div class="faq-item"><h3>Você garante resultados?</h3><p>Garanto a qualidade da entrega e o rigor técnico do trabalho. Resultados de negócio dependem de fatores além do SEO e do conteúdo e por isso não são garantidos.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /contato -->
+
+<!-- ======== FOOTER (global) ======== -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Jacqueline Alves</div>
+      <div class="footer-tag">SEO · GEO · AEO</div>
+      <p>Especialista em Conteúdo, SEO, GEO e AEO. Ajudo empresas B2B a serem encontradas e recomendadas onde seus clientes realmente buscam hoje.</p>
+      <p style="font-size:.8rem;color:#9896CC">contato@jacquelinealves.com.br</p>
+    </div>
+    <div>
+      <h4>Navegação</h4>
+      <ul>
+        <li><span onclick="showPage('home')">Home</span></li>
+        <li><span onclick="showPage('sobre')">Sobre mim</span></li>
+        <li><span onclick="showPage('servicos')">Serviços</span></li>
+        <li><span onclick="showPage('auditoria')">Auditoria</span></li>
+        <li><span onclick="showPage('contato')">Contato</span></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Serviços</h4>
+      <ul>
+        <li><span onclick="showPage('auditoria')">Auditoria de Visibilidade em IA</span></li>
+        <li><span onclick="showPage('servicos')">Consultoria Contínua B2B SaaS</span></li>
+        <li><span onclick="showPage('servicos')">Implementações Técnicas</span></li>
+      </ul>
+      <h4 style="margin-top:2rem">Redes</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/jacquelinealvesoliveira" target="_blank">LinkedIn</a></li>
+        <li><a href="https://depoiseuteconto.substack.com" target="_blank">Substack</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Jacqueline Alves. Todos os direitos reservados.</p>
+    <p>SEO · GEO · AEO</p>
+  </div>
+</footer>
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  const navEl=document.getElementById('nav-'+id);
+  if(navEl)navEl.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleMenu(){
+  const m=document.getElementById('mobile-menu');
+  m.classList.toggle('open');
+}
+</script>
+</body>
+</html>
