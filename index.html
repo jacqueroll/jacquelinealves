@@ -1044,6 +1044,13 @@ async function handleSubmit(e){
       form.reset();
       document.getElementById('form-success').style.display = 'block';
       btn.style.display = 'none';
+      // Rastrear lead no GA4
+      if(typeof gtag !== 'undefined'){
+        gtag('event', 'lead_form_submit', {
+          'event_category': 'formulario',
+          'event_label': 'contato_site'
+        });
+      }
     } else {
       btn.textContent = 'Erro ao enviar. Tente novamente.';
       btn.disabled = false;
