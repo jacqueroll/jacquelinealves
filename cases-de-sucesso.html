@@ -221,6 +221,21 @@ footer ul li a:hover{color:var(--lilac)}
 .nav-toggle{display:flex}
 .footer-bottom{flex-direction:column;gap:.5rem;text-align:center}
 }
+
+.has-mega { position: static; }
+.mega-menu { display:none;position:absolute;top:72px;left:0;right:0;background:#141459;border-top:2px solid #836FFF;box-shadow:0 12px 40px rgba(0,0,0,.4);z-index:200;padding:2rem; }
+.has-mega:hover .mega-menu,.has-mega:focus-within .mega-menu { display:block; }
+.mega-grid { max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem; }
+.mega-col-title { font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#836FFF;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(131,111,255,.3); }
+.mega-item { display:flex;gap:.85rem;align-items:flex-start;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none;transition:opacity .15s; }
+.mega-item:last-child { border-bottom:none; }
+.mega-item:hover { opacity:.8; }
+.mega-item-icon { width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0; }
+.mega-item-text strong { display:block;font-size:.88rem;font-weight:700;color:#F8F8FF;margin-bottom:.2rem; }
+.mega-item-text span { font-size:.78rem;color:#9896CC;line-height:1.4; }
+.mega-badge { display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:4px;margin-left:.4rem;background:rgba(131,111,255,.25);color:#836FFF;vertical-align:middle; }
+@media(max-width:960px){ .mega-grid{grid-template-columns:1fr;} .mega-menu{top:100%;} }
+
 </style>
 </head>
 <body>
@@ -241,14 +256,40 @@ footer ul li a:hover{color:var(--lilac)}
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
       <li><a href="/sobre-mim">Sobre mim</a></li>
-      <li><a href="/servicos">Produtos</a></li>
+      <li class="has-mega">
+        <a href="/servicos" style="cursor:pointer">Produtos &#9662;</a>
+        <div class="mega-menu">
+          <div class="mega-grid">
+            <div>
+              <div class="mega-col-title">Soluções para profissionais de marketing</div>
+              <a class="mega-item" href="/guia-marketing-digital">
+                <div class="mega-item-icon" style="background:rgba(131,111,255,.2)">&#128218;</div>
+                <div class="mega-item-text"><strong>Guia para Entrar no Mercado de Marketing Digital</strong><span>PDF completo com 15 capítulos para iniciantes e júniors</span></div>
+              </a>
+              <a class="mega-item" href="/modelo-curriculo">
+                <div class="mega-item-icon" style="background:rgba(106,90,205,.2)">&#128196;</div>
+                <div class="mega-item-text"><strong>Modelo de Currículo para Marketing Digital <span class="mega-badge">Em breve</span></strong><span>Template editável com guia de preenchimento</span></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Soluções para empresas B2B</div>
+              <a class="mega-item" href="/auditoria-visibilidade-ia">
+                <div class="mega-item-icon" style="background:rgba(131,111,255,.2)">&#128269;</div>
+                <div class="mega-item-text"><strong>Auditoria de Visibilidade em IA + SEO Técnico</strong><span>Diagnóstico completo de como sua marca aparece no Google e nas IAs</span></div>
+              </a>
+              <a class="mega-item" href="/consultoria-b2b-saas">
+                <div class="mega-item-icon" style="background:rgba(106,90,205,.2)">&#128200;</div>
+                <div class="mega-item-text"><strong>Consultoria Contínua para B2B SaaS</strong><span>Parceria recorrente para conteúdo, SEO e GEO/AEO</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
       <li><a href="/newsletter">Newsletter</a></li>
       <li><a href="/cases-de-sucesso">Cases</a></li>
       <li><a href="/contato" class="nav-cta">Contato</a></li>
     </ul>
-    <div class="nav-toggle" onclick="toggleNav()">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></div>
   </div>
 </nav>
 <div>
@@ -358,23 +399,35 @@ footer ul li a:hover{color:var(--lilac)}
     <div>
       <div class="footer-logo-name">Jacqueline Alves</div>
       <div class="footer-logo-tag">Marketing Digital · SEO · GEO</div>
-      <p>Ajudo profissionais iniciantes a entrarem no mercado de marketing digital com conteúdo prático e acessível.</p>
+      <p>Especialista em Marketing Digital com 15+ anos de experiência. Ajudo profissionais iniciantes e empresas B2B a crescerem com estratégia e visibilidade.</p>
     </div>
     <div>
-      <h4>Navegação</h4>
+      <h4>Para profissionais</h4>
       <ul>
-        <li><a href="/sobre-mim">Sobre mim</a></li>
-        <li><a href="/servicos">Produtos</a></li>
-        <li><a href="/newsletter">Newsletter</a></li>
-        <li><a href="/cases-de-sucesso">Cases</a></li>
-        <li><a href="/contato">Contato</a></li>
+        <li><a href="/guia-marketing-digital">Guia para Iniciantes</a></li>
+        <li><a href="/modelo-curriculo">Modelo de Currículo</a></li>
+      </ul>
+      <h4 style="margin-top:1.25rem">Para empresas B2B</h4>
+      <ul>
+        <li><a href="/auditoria-visibilidade-ia">Auditoria de Visibilidade em IA</a></li>
+        <li><a href="/consultoria-b2b-saas">Consultoria Contínua B2B SaaS</a></li>
       </ul>
     </div>
     <div>
-      <h4>Conteúdo gratuito</h4>
+      <h4>Newsletters</h4>
       <ul>
         <li><a href="https://orbitandonomarketing.substack.com/" target="_blank">Orbitando no Marketing</a></li>
         <li><a href="https://depoiseuteconto.substack.com" target="_blank">Depois Eu Te Conto</a></li>
+        <li><a href="https://marriedtothemusic.substack.com" target="_blank">Married to the Music</a></li>
+      </ul>
+      <h4 style="margin-top:1.25rem">Me conheça</h4>
+      <ul>
+        <li><a href="/sobre-mim">Sobre mim</a></li>
+        <li><a href="/cases-de-sucesso">Cases de Sucesso</a></li>
+      </ul>
+      <h4 style="margin-top:1.25rem">Fale comigo</h4>
+      <ul>
+        <li><a href="/contato">Contato</a></li>
         <li><a href="https://www.linkedin.com/in/jacquelinealvesoliveira" target="_blank">LinkedIn</a></li>
       </ul>
     </div>

@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<title>Jacqueline Alves</title>
+<head><meta charset="UTF-8"><title>Jacqueline Alves</title>
 <script>
-// Roteamento de URLs limpas no GitHub Pages
-const routes = {
+var routes = {
   '/sobre-mim': '/sobre-mim.html',
   '/servicos': '/servicos.html',
+  '/newsletter': '/newsletter.html',
   '/cases-de-sucesso': '/cases-de-sucesso.html',
   '/contato': '/contato.html',
+  '/guia-marketing-digital': '/guia-marketing-digital.html',
+  '/modelo-curriculo': '/modelo-curriculo.html',
+  '/auditoria-visibilidade-ia': '/auditoria-visibilidade-ia.html',
+  '/consultoria-b2b-saas': '/consultoria-b2b-saas.html',
 };
-const path = window.location.pathname.replace(/\/$/, '');
-if(routes[path]) {
-  window.location.replace(routes[path]);
-} else {
-  window.location.replace('/');
-}
+var path = window.location.pathname.replace(/\/$/, '');
+if(routes[path]){ window.location.replace(routes[path]); }
+else { window.location.replace('/'); }
 </script>
-</head>
-<body></body>
-</html>
+</head><body></body></html>
