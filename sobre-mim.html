@@ -633,6 +633,27 @@ footer ul li a:hover{color:var(--lilac)}
 </div>
 <script>
 function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+
+// Mega menu: manter aberto com delay para o mouse cruzar o gap
+(function(){
+  var hasMega = document.querySelector('.has-mega');
+  if(!hasMega) return;
+  var timer;
+  hasMega.addEventListener('mouseenter', function(){
+    clearTimeout(timer);
+    hasMega.classList.add('open');
+  });
+  hasMega.addEventListener('mouseleave', function(){
+    timer = setTimeout(function(){ hasMega.classList.remove('open'); }, 200);
+  });
+  var menu = hasMega.querySelector('.mega-menu');
+  if(menu){
+    menu.addEventListener('mouseenter', function(){ clearTimeout(timer); });
+    menu.addEventListener('mouseleave', function(){
+      timer = setTimeout(function(){ hasMega.classList.remove('open'); }, 200);
+    });
+  }
+})();
 </script>
 </body>
 </html>
