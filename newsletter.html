@@ -236,6 +236,118 @@ footer ul li a:hover{color:var(--lilac)}
 .mega-badge { display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:4px;margin-left:.4rem;background:rgba(131,111,255,.25);color:#836FFF;vertical-align:middle; }
 @media(max-width:960px){ .mega-grid{grid-template-columns:1fr;} .mega-menu{top:100%;} }
 
+
+/* MEGA MENU — click-based */
+.nav-links { position: relative; }
+.has-mega { position: static; }
+.mega-trigger { cursor: pointer; user-select: none; }
+.mega-menu {
+  display: none;
+  position: absolute;
+  top: 72px;
+  left: 0;
+  right: 0;
+  background: #141459;
+  border-top: 2px solid #836FFF;
+  box-shadow: 0 16px 48px rgba(0,0,0,.45);
+  z-index: 300;
+  padding: 2rem;
+}
+.has-mega.open .mega-menu { display: block; }
+.mega-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.mega-col-title {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #836FFF;
+  margin-bottom: 1rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid rgba(131,111,255,.3);
+}
+.mega-item {
+  display: flex;
+  gap: .85rem;
+  align-items: flex-start;
+  padding: .75rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  text-decoration: none;
+  transition: background .15s;
+  border-radius: 6px;
+}
+.mega-item:last-child { border-bottom: none; }
+.mega-item:hover { opacity: .85; }
+.mega-item-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.mega-item-text strong {
+  display: block;
+  font-size: .9rem;
+  font-weight: 700;
+  color: #F8F8FF;
+  margin-bottom: .25rem;
+  line-height: 1.3;
+}
+.mega-item-text span {
+  font-size: .78rem;
+  color: #9896CC;
+  line-height: 1.4;
+}
+.mega-badge {
+  display: inline-block;
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .15rem .5rem;
+  border-radius: 4px;
+  margin-left: .4rem;
+  background: rgba(131,111,255,.25);
+  color: #836FFF;
+  vertical-align: middle;
+}
+/* Newsletter dropdown no nav */
+.has-dropdown { position: static; }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 72px;
+  background: #141459;
+  border-top: 2px solid #836FFF;
+  box-shadow: 0 16px 48px rgba(0,0,0,.45);
+  z-index: 300;
+  padding: 1rem 1.5rem;
+  min-width: 240px;
+  border-radius: 0 0 10px 10px;
+}
+.has-dropdown.open .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: block;
+  padding: .6rem 0;
+  font-size: .88rem;
+  color: #C8C5F0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  transition: color .15s;
+}
+.dropdown-menu a:last-child { border-bottom: none; }
+.dropdown-menu a:hover { color: #836FFF; }
+@media(max-width:960px){ .mega-grid{grid-template-columns:1fr;} .mega-menu,.dropdown-menu{position:static;border-top:none;box-shadow:none;padding:1rem 0;} }
+
 </style>
 </head>
 <body>
@@ -256,36 +368,55 @@ footer ul li a:hover{color:var(--lilac)}
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
       <li><a href="/sobre-mim">Sobre mim</a></li>
-      <li class="has-mega">
-        <a href="/servicos" style="cursor:pointer">Produtos &#9662;</a>
-        <div class="mega-menu">
+      <li class="has-mega" id="megaItem">
+        <span class="mega-trigger" onclick="toggleMega(event)" style="color:#F8F8FF;opacity:.85;font-size:.88rem;font-weight:500;cursor:pointer;letter-spacing:0">Soluções &#9662;</span>
+        <div class="mega-menu" id="megaMenu">
           <div class="mega-grid">
             <div>
               <div class="mega-col-title">Soluções para profissionais de marketing</div>
               <a class="mega-item" href="/guia-marketing-digital">
                 <div class="mega-item-icon" style="background:rgba(131,111,255,.2)">&#128218;</div>
-                <div class="mega-item-text"><strong>Guia para Entrar no Mercado de Marketing Digital</strong><span>PDF completo com 15 capítulos para iniciantes e júniors</span></div>
+                <div class="mega-item-text">
+                  <strong>Guia para Entrar no Mercado de Marketing Digital</strong>
+                  <span>PDF completo com 15 capítulos para iniciantes e júniors</span>
+                </div>
               </a>
               <a class="mega-item" href="/modelo-curriculo">
                 <div class="mega-item-icon" style="background:rgba(106,90,205,.2)">&#128196;</div>
-                <div class="mega-item-text"><strong>Modelo de Currículo para Marketing Digital <span class="mega-badge">Em breve</span></strong><span>Template editável com guia de preenchimento</span></div>
+                <div class="mega-item-text">
+                  <strong>Modelo de Currículo para Marketing Digital <span class="mega-badge">Em breve</span></strong>
+                  <span>Template editável com guia de preenchimento</span>
+                </div>
               </a>
             </div>
             <div>
               <div class="mega-col-title">Soluções para empresas B2B</div>
               <a class="mega-item" href="/auditoria-visibilidade-ia">
                 <div class="mega-item-icon" style="background:rgba(131,111,255,.2)">&#128269;</div>
-                <div class="mega-item-text"><strong>Auditoria de Visibilidade em IA + SEO Técnico</strong><span>Diagnóstico completo de como sua marca aparece no Google e nas IAs</span></div>
+                <div class="mega-item-text">
+                  <strong>Auditoria de Visibilidade em IA + SEO Técnico</strong>
+                  <span>Diagnóstico completo de como sua marca aparece no Google e nas IAs</span>
+                </div>
               </a>
               <a class="mega-item" href="/consultoria-b2b-saas">
                 <div class="mega-item-icon" style="background:rgba(106,90,205,.2)">&#128200;</div>
-                <div class="mega-item-text"><strong>Consultoria Contínua para B2B SaaS</strong><span>Parceria recorrente para conteúdo, SEO e GEO/AEO</span></div>
+                <div class="mega-item-text">
+                  <strong>Consultoria Contínua para B2B SaaS</strong>
+                  <span>Parceria recorrente para conteúdo, SEO e GEO/AEO</span>
+                </div>
               </a>
             </div>
           </div>
         </div>
       </li>
-      <li><a href="/newsletter">Newsletter</a></li>
+      <li class="has-dropdown" id="newsItem">
+        <span class="mega-trigger nav-links-text" onclick="toggleNews(event)" style="color:var(--ghost);opacity:.85;font-size:.88rem;font-weight:500;cursor:pointer">Newsletters &#9662;</span>
+        <div class="dropdown-menu" id="newsMenu">
+          <a href="https://orbitandonomarketing.substack.com/" target="_blank">Orbitando no Marketing</a>
+          <a href="https://depoiseuteconto.substack.com" target="_blank">Depois Eu Te Conto</a>
+          <a href="https://marriedtothemusic.substack.com" target="_blank">Married to the Music</a>
+        </div>
+      </li>
       <li><a href="/cases-de-sucesso">Cases</a></li>
       <li><a href="/contato" class="nav-cta">Contato</a></li>
     </ul>
@@ -411,22 +542,27 @@ footer ul li a:hover{color:var(--lilac)}
 </footer>
 </div>
 <script>
-function toggleNav(){
-  document.getElementById('navLinks').classList.toggle('open');
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+function toggleMega(e){
+  e.stopPropagation();
+  var m=document.getElementById('megaItem');
+  var n=document.getElementById('newsItem');
+  if(n) n.classList.remove('open');
+  m.classList.toggle('open');
 }
-
-(function(){
-  var hasMega = document.querySelector('.has-mega');
-  if(!hasMega) return;
-  var timer;
-  hasMega.addEventListener('mouseenter', function(){ clearTimeout(timer); hasMega.classList.add('open'); });
-  hasMega.addEventListener('mouseleave', function(){ timer = setTimeout(function(){ hasMega.classList.remove('open'); }, 200); });
-  var menu = hasMega.querySelector('.mega-menu');
-  if(menu){
-    menu.addEventListener('mouseenter', function(){ clearTimeout(timer); });
-    menu.addEventListener('mouseleave', function(){ timer = setTimeout(function(){ hasMega.classList.remove('open'); }, 200); });
-  }
-})();
+function toggleNews(e){
+  e.stopPropagation();
+  var n=document.getElementById('newsItem');
+  var m=document.getElementById('megaItem');
+  if(m) m.classList.remove('open');
+  n.classList.toggle('open');
+}
+document.addEventListener('click',function(){
+  var m=document.getElementById('megaItem');
+  var n=document.getElementById('newsItem');
+  if(m) m.classList.remove('open');
+  if(n) n.classList.remove('open');
+});
 </script>
 </body>
 </html>
