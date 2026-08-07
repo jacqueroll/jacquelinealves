@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jacquelinealves.com.br/guia-marketing-digital">
 <meta property="og:title" content="Guia para Entrar no Mercado de Marketing Digital | Jacqueline Alves">
-<meta property="og:description" content="PDF completo com 15 capítulos para profissionais iniciantes em marketing digital. Portfólio, currículo, LinkedIn, vagas, estágio e vaga júnior.">
+<meta property="og:description" content="PDF completo com 15 capítulos para iniciantes em marketing digital.">
 <meta property="og:image" content="https://jacquelinealves.com.br/favicon-512.png">
 <link rel="icon" type="image/png" href="/favicon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,8 +20,8 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ECV8PKS6J0');</script>
 <script type="text/javascript">
 function importHotmart(){
-  var s=document.createElement('script'); s.src='https://static.hotmart.com/checkout/widget.min.js'; document.head.appendChild(s);
-  var l=document.createElement('link'); l.rel='stylesheet'; l.type='text/css'; l.href='https://static.hotmart.com/css/hotmart-fb.min.css'; document.head.appendChild(l);
+  var s=document.createElement('script');s.src='https://static.hotmart.com/checkout/widget.min.js';document.head.appendChild(s);
+  var l=document.createElement('link');l.rel='stylesheet';l.type='text/css';l.href='https://static.hotmart.com/css/hotmart-fb.min.css';document.head.appendChild(l);
 }
 importHotmart();
 </script>
@@ -356,6 +356,19 @@ footer ul li a:hover{color:var(--lilac)}
 .dropdown-menu a:hover { color: #836FFF; }
 @media(max-width:960px){ .mega-grid{grid-template-columns:1fr;} .mega-menu,.dropdown-menu{position:static;border-top:none;box-shadow:none;padding:1rem 0;} }
 
+
+/* PRODUTO */
+.product-hero{background:var(--navy);padding:6rem 2rem 5rem}
+.product-hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.product-buy-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:2rem}
+.product-buy-card h3{font-size:.9rem;font-weight:700;color:var(--ghost);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:.08em}
+.buy-info-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.88rem}
+.buy-info-row:last-of-type{border:none}
+.buy-info-row span:first-child{color:#9896CC}
+.buy-info-row span:last-child{color:var(--ghost);font-weight:600}
+.trust-badge{font-size:.82rem;color:#C8C5F0;padding:.35rem 0;display:flex;align-items:center;gap:.4rem}
+.hotmart__button-checkout img{width:100%;max-width:280px;border-radius:8px;display:block;margin:0 auto}
+@media(max-width:960px){.product-hero-inner{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -433,42 +446,50 @@ footer ul li a:hover{color:var(--lilac)}
 </nav>
 <div>
 
+  <!-- HERO COM CARD DE COMPRA -->
   <section class="product-hero">
     <div class="product-hero-inner">
+
+      <!-- Coluna esquerda: apresentação -->
       <div>
-        <span class="hero-tag">Para profissionais de marketing</span>
-        <h1 style="color:var(--ghost);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;margin-bottom:1rem;line-height:1.15">Guia para Entrar no Mercado de Marketing Digital</h1>
-        <p style="color:#C8C5F0;font-size:1rem;line-height:1.7;margin-bottom:1.5rem">O caminho prático para quem quer trabalhar com marketing digital, conteúdo, SEO ou inbound — e não sabe por onde começar. Com base em 15 anos de experiência real de mercado.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:.65rem;margin-bottom:1.75rem">
-          <span style="background:rgba(131,111,255,.2);color:#C8C5F0;font-size:.8rem;padding:.35rem .85rem;border-radius:6px">PDF completo</span>
-          <span style="background:rgba(131,111,255,.2);color:#C8C5F0;font-size:.8rem;padding:.35rem .85rem;border-radius:6px">15 capítulos</span>
-          <span style="background:rgba(131,111,255,.2);color:#C8C5F0;font-size:.8rem;padding:.35rem .85rem;border-radius:6px">Direcional para estágio</span>
-          <span style="background:rgba(131,111,255,.2);color:#C8C5F0;font-size:.8rem;padding:.35rem .85rem;border-radius:6px">Direcional para júnior</span>
+        <span style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--lilac);border:1px solid var(--lilac);padding:.3rem 1rem;border-radius:999px;margin-bottom:1.5rem">Para profissionais de marketing</span>
+        <h1 style="font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;color:var(--ghost);line-height:1.12;margin-bottom:1.1rem">Guia para Entrar no Mercado de Marketing Digital</h1>
+        <p style="font-size:1rem;line-height:1.7;color:#C8C5F0;margin-bottom:1.75rem">O caminho prático para quem quer trabalhar com marketing digital, conteúdo, SEO ou inbound — e não sabe por onde começar. Com base em 15 anos de experiência real de mercado.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem">
+          <span style="background:rgba(131,111,255,.18);color:#C8C5F0;font-size:.8rem;padding:.35rem .85rem;border-radius:6px">PDF completo</span>
+          <span style="background:rgba(131,111,255,.18);color:#C8C5F0;font-size:.8rem;padding:.35rem .85rem;border-radius:6px">15 capítulos</span>
+          <span style="background:rgba(131,111,255,.18);color:#C8C5F0;font-size:.8rem;padding:.35rem .85rem;border-radius:6px">Direcional para estágio</span>
+          <span style="background:rgba(131,111,255,.18);color:#C8C5F0;font-size:.8rem;padding:.35rem .85rem;border-radius:6px">Direcional para júnior</span>
         </div>
       </div>
-      <!-- Card de compra no hero -->
+
+      <!-- Coluna direita: card de compra -->
       <div class="product-buy-card">
         <h3>Adquira o guia</h3>
         <div class="buy-info-row"><span>Formato</span><span>PDF digital</span></div>
-        <div class="buy-info-row"><span>Acesso</span><span>Imediato após o pagamento</span></div>
+        <div class="buy-info-row"><span>Acesso</span><span>Imediato</span></div>
         <div class="buy-info-row"><span>Garantia</span><span>7 dias</span></div>
-        <div class="trust-badges" style="margin:1.25rem 0">
-          <div class="trust-badge">&#10003; Download imediato</div>
+        <div style="margin:1.25rem 0;display:flex;flex-direction:column;gap:.3rem">
+          <div class="trust-badge">&#10003; Download imediato após o pagamento</div>
           <div class="trust-badge">&#10003; Pagamento seguro via Hotmart</div>
           <div class="trust-badge">&#10003; Garantia de reembolso de 7 dias</div>
         </div>
-        <a onclick="return false;" href="https://pay.hotmart.com/P106977538O?checkoutMode=2" class="hotmart-fb hotmart__button-checkout" style="display:block;margin-top:1rem">
-          <img src="https://static.hotmart.com/img/btn-buy-green.png" alt="Comprar agora" style="width:100%;max-width:280px;border-radius:8px;display:block;margin:0 auto">
+        <a onclick="return false;" href="https://pay.hotmart.com/P106977538O?checkoutMode=2" class="hotmart-fb hotmart__button-checkout" style="display:block">
+          <img src="https://static.hotmart.com/img/btn-buy-green.png" alt="Comprar agora">
         </a>
       </div>
+
     </div>
   </section>
 
+  <!-- CONTEÚDO DO GUIA -->
   <section class="section section-ghost">
     <div class="section-inner">
-      <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:start">
+      <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:4rem;align-items:start">
+
+        <!-- O que você vai aprender -->
         <div>
-          <h2 style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--navy);margin-bottom:1.25rem">O que você vai aprender</h2>
+          <h2 style="font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:var(--navy);margin-bottom:1.25rem">O que você vai aprender</h2>
           <ul class="check-list">
             <li>O que o mercado de marketing digital espera de um iniciante</li>
             <li>Quais áreas existem e como escolher a sua</li>
@@ -487,34 +508,39 @@ footer ul li a:hover{color:var(--lilac)}
             <li>Resumo dos 14 principais insights do guia</li>
           </ul>
         </div>
-        <div>
-          <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:1.5rem">
-            <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:1rem">Para quem é</h3>
+
+        <!-- Para quem é + segundo CTA de compra -->
+        <div style="display:flex;flex-direction:column;gap:1.5rem">
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.75rem">
+            <h3 style="font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:1rem">Para quem é</h3>
             <div style="display:flex;flex-direction:column;gap:.75rem">
-              <div style="display:flex;gap:.75rem"><span style="color:var(--lilac);flex-shrink:0;font-weight:700">&#8594;</span><p style="font-size:.88rem;color:var(--text);margin:0;line-height:1.55">Recém-formados em comunicação, publicidade, jornalismo ou áreas afins</p></div>
-              <div style="display:flex;gap:.75rem"><span style="color:var(--lilac);flex-shrink:0;font-weight:700">&#8594;</span><p style="font-size:.88rem;color:var(--text);margin:0;line-height:1.55">Pessoas em transição de carreira que querem migrar para o digital</p></div>
-              <div style="display:flex;gap:.75rem"><span style="color:var(--lilac);flex-shrink:0;font-weight:700">&#8594;</span><p style="font-size:.88rem;color:var(--text);margin:0;line-height:1.55">Profissionais que fizeram cursos livres e não sabem como dar o próximo passo</p></div>
-              <div style="display:flex;gap:.75rem"><span style="color:var(--lilac);flex-shrink:0;font-weight:700">&#8594;</span><p style="font-size:.88rem;color:var(--text);margin:0;line-height:1.55">Pessoas de baixa renda que não têm acesso a mentorias caras</p></div>
+              <div style="display:flex;gap:.65rem;align-items:flex-start"><span style="color:var(--lilac);font-weight:700;flex-shrink:0">&#8594;</span><p style="font-size:.88rem;color:var(--text);margin:0;line-height:1.55">Recém-formados em comunicação, publicidade, jornalismo ou áreas afins</p></div>
+              <div style="display:flex;gap:.65rem;align-items:flex-start"><span style="color:var(--lilac);font-weight:700;flex-shrink:0">&#8594;</span><p style="font-size:.88rem;color:var(--text);margin:0;line-height:1.55">Pessoas em transição de carreira que querem migrar para o digital</p></div>
+              <div style="display:flex;gap:.65rem;align-items:flex-start"><span style="color:var(--lilac);font-weight:700;flex-shrink:0">&#8594;</span><p style="font-size:.88rem;color:var(--text);margin:0;line-height:1.55">Profissionais que fizeram cursos livres e não sabem como dar o próximo passo</p></div>
+              <div style="display:flex;gap:.65rem;align-items:flex-start"><span style="color:var(--lilac);font-weight:700;flex-shrink:0">&#8594;</span><p style="font-size:.88rem;color:var(--text);margin:0;line-height:1.55">Pessoas de baixa renda que não têm acesso a mentorias caras</p></div>
             </div>
           </div>
-          <!-- Segundo card de compra na página -->
-          <div style="background:var(--navy);border-radius:16px;padding:2rem;text-align:center">
-            <p style="font-size:.85rem;color:#C8C5F0;margin-bottom:1.25rem">Pronto para dar o primeiro passo?</p>
+
+          <!-- Segundo botão de compra -->
+          <div style="background:var(--navy);border-radius:14px;padding:1.75rem;text-align:center">
+            <p style="font-size:.88rem;color:#C8C5F0;margin-bottom:1.25rem;line-height:1.5">Pronto para dar o primeiro passo?</p>
             <a onclick="return false;" href="https://pay.hotmart.com/P106977538O?checkoutMode=2" class="hotmart-fb hotmart__button-checkout" style="display:block">
-              <img src="https://static.hotmart.com/img/btn-buy-green.png" alt="Comprar agora" style="width:100%;max-width:240px;border-radius:8px;display:block;margin:0 auto">
+              <img src="https://static.hotmart.com/img/btn-buy-green.png" alt="Comprar agora">
             </a>
-            <p style="font-size:.75rem;color:#9896CC;margin-top:1rem">Garantia de 7 dias. Pagamento seguro.</p>
+            <p style="font-size:.72rem;color:#9896CC;margin-top:.85rem">Pagamento seguro. Garantia de 7 dias.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section class="section section-navy" style="text-align:center">
+  <!-- CTA NEWSLETTER -->
+  <section class="section" style="background:linear-gradient(135deg,#483D8B,#6A5ACD);text-align:center">
     <div class="section-inner">
-      <h2 style="font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:var(--ghost);margin-bottom:.75rem">Também tem conteúdo gratuito toda semana</h2>
-      <p style="color:#C8C5F0;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto">A newsletter Orbitando no Marketing traz SEO, conteúdo, inbound e mercado de trabalho direto no seu e-mail. Gratuita.</p>
-      <a class="btn" href="https://orbitandonomarketing.substack.com/" target="_blank">Assinar a newsletter grátis</a>
+      <h2 style="font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:700;color:var(--ghost);margin-bottom:.75rem">Também tem conteúdo gratuito toda semana</h2>
+      <p style="color:#E0DDFF;margin-bottom:1.75rem;max-width:500px;margin-left:auto;margin-right:auto">A newsletter Orbitando no Marketing traz SEO, conteúdo, inbound e mercado de trabalho direto no seu e-mail.</p>
+      <a class="btn" href="https://orbitandonomarketing.substack.com/" target="_blank" style="background:#F8F8FF;color:#191970">Assinar grátis</a>
     </div>
   </section>
 
