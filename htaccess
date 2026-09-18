@@ -1,0 +1,16 @@
+Options -Indexes
+DirectoryIndex index.php index.html
+
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+RewriteBase /
+
+# Servir arquivo real se existir
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# URL limpa → .html (ex: /sobre-mim → /sobre-mim.html)
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^/]+)/?$ /$1.html [L]

@@ -1,14 +1,36 @@
+<?php
+$slug = preg_replace('/[^a-z0-9\-]/', '', strtolower($_GET['slug'] ?? ''));
+if (!$slug) { header('Location: /publicacoes/'); exit; }
+
+$file = __DIR__ . '/../api/posts/' . $slug . '.json';
+if (!file_exists($file)) { header('HTTP/1.0 404 Not Found'); ?>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Texto não encontrado | Jacqueline Alves</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css"></head><body>
+<div style="text-align:center;padding:6rem 2rem"><h1>Texto não encontrado</h1><p style="margin:1rem 0;color:var(--muted)">O texto que você procura não existe ou foi removido.</p><a class="btn" href="/publicacoes/">Voltar às publicações</a></div>
+</body></html>
+<?php exit; }
+
+$post = json_decode(file_get_contents($file), true);
+if (!$post || $post['status'] !== 'publicado') { header('Location: /publicacoes/'); exit; }
+
+$cat_icons = ['Contos'=>'📖','Poemas'=>'✍️','Fanfics'=>'🌸','Ensaios'=>'💬','Diário de leitura'=>'📚'];
+$icon = $cat_icons[$post['categoria']] ?? '✨';
+$data_fmt = date('d \d\e F \d\e Y', strtotime($post['data'] ?? 'now'));
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contato | Jacqueline Alves</title>
-<meta name="description" content="Entre em contato com Jacqueline Alves para dúvidas, colaborações ou qualquer assunto.">
-<meta name="author" content="Jacqueline Alves">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://jacquelinealves.com.br/contato.html">
-<meta property="og:type" content="website"><meta property="og:url" content="https://jacquelinealves.com.br/contato.html">
-<meta property="og:title" content="Contato | Jacqueline Alves"><meta property="og:description" content="Entre em contato com Jacqueline Alves para dúvidas, colaborações ou qualquer assunto.">
+<title><?= htmlspecialchars($post['titulo']) ?> | Jacqueline Alves</title>
+<meta name="description" content="<?= htmlspecialchars(mb_substr(strip_tags($post['corpo'] ?? ''), 0, 160)) ?>">
+<meta property="og:title" content="<?= htmlspecialchars($post['titulo']) ?>">
+<meta property="og:description" content="<?= htmlspecialchars(mb_substr(strip_tags($post['corpo'] ?? ''), 0, 160)) ?>">
+<?php if (!empty($post['imagem'])): ?>
+<meta property="og:image" content="<?= htmlspecialchars($post['imagem']) ?>">
+<?php endif; ?>
+<link rel="canonical" href="https://jacquelinealves.com.br/publicacoes/post.php?slug=<?= urlencode($slug) ?>">
 <link rel="icon" type="image/png" href="/favicon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -40,43 +62,33 @@
     </div>
   </div>
 </nav>
+
 <div class="article-header">
-  <span class="hero-tag">Contato</span>
-  <h1>Vamos conversar?</h1>
-  <p style="color:var(--muted);max-width:480px;margin:.75rem auto 0">Para dúvidas, colaborações ou qualquer outro assunto. Retorno em até 1 dia útil.</p>
-</div>
-<section class="section">
-  <div class="section-inner">
-    <div class="grid-2">
-      <div>
-        <h2 style="margin-bottom:1.5rem">Mande uma mensagem</h2>
-        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:0 4px 20px rgba(188,143,143,.08)">
-          <form action="https://formspree.io/f/mnjyllda" method="POST" onsubmit="handleSubmit(event)">
-            <div class="form-group"><label>Nome</label><input type="text" name="nome" placeholder="Seu nome" required></div>
-            <div class="form-group"><label>E-mail</label><input type="email" name="email" placeholder="seu@email.com.br" required></div>
-            <div class="form-group"><label>Assunto</label>
-              <select name="assunto"><option value="" disabled selected>Selecione</option>
-              <option>Colaboração criativa</option><option>Revisão de texto</option>
-              <option>Dúvida sobre publicações</option><option>Dúvida sobre newsletters</option>
-              <option>Outro</option></select></div>
-            <div class="form-group"><label>Mensagem</label><textarea rows="5" name="mensagem" placeholder="Escreva aqui..." required></textarea></div>
-            <p class="form-note">Para assuntos profissionais de marketing, SEO e consultoria, acesse <a href="https://orbitandonomarketing.com.br" target="_blank">orbitandonomarketing.com.br</a>.</p>
-            <button type="submit" class="btn" style="width:100%">Enviar mensagem</button>
-            <div id="form-success" style="display:none;background:#f0fdf4;border:1px solid #86efac;color:#166534;padding:1rem;border-radius:8px;margin-top:1rem;font-family:Inter,sans-serif;font-size:.9rem">&#10003; Mensagem enviada! Retorno em até 1 dia útil.</div>
-          </form>
-        </div>
-      </div>
-      <div>
-        <h2 style="margin-bottom:1.5rem">Outros caminhos</h2>
-        <div style="display:flex;flex-direction:column;gap:1rem">
-          <div class="card"><h3 style="margin-bottom:.35rem">LinkedIn</h3><p>Para conexões profissionais e troca de experiências.</p><a class="card-link" href="https://www.linkedin.com/in/jacquelinealvesoliveira" target="_blank">Acessar o perfil</a></div>
-          <div class="card"><h3 style="margin-bottom:.35rem">Soluções profissionais</h3><p>Para consultoria de SEO, GEO, AEO ou desenvolvimento de sites, o endereço é outro.</p><a class="card-link" href="https://orbitandonomarketing.com.br" target="_blank">Acessar a Orbitando no Marketing</a></div>
-          <div class="card"><h3 style="margin-bottom:.35rem">Newsletters</h3><p>Para acompanhar meu trabalho sem precisar aguardar resposta.</p><a class="card-link" href="/projetos">Ver as newsletters</a></div>
-        </div>
-      </div>
-    </div>
+  <div style="margin-bottom:.75rem">
+    <a href="/publicacoes/?categoria=<?= urlencode($post['categoria'] ?? '') ?>" class="tag tag-accent" style="text-decoration:none"><?= $icon . ' ' . htmlspecialchars($post['categoria'] ?? '') ?></a>
   </div>
-</section>
+  <h1><?= htmlspecialchars($post['titulo']) ?></h1>
+  <p class="meta" style="margin-top:.75rem">
+    Por <a href="/sobre-mim" style="color:var(--accent)">Jacqueline Alves</a>
+    &nbsp;·&nbsp; <?= $data_fmt ?>
+  </p>
+</div>
+
+<?php if (!empty($post['imagem'])): ?>
+<img src="<?= htmlspecialchars($post['imagem']) ?>" alt="<?= htmlspecialchars($post['titulo']) ?>" style="width:100%;max-height:440px;object-fit:cover">
+<?php endif; ?>
+
+<div class="article-body">
+  <?= $post['corpo'] ?>
+</div>
+
+<div style="max-width:720px;margin:0 auto;padding:0 2rem 4rem;border-top:1px solid var(--border);padding-top:2rem">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+    <a href="/publicacoes/" class="btn btn-outline btn-sm">&larr; Voltar às publicações</a>
+    <a href="/publicacoes/?categoria=<?= urlencode($post['categoria'] ?? '') ?>" class="btn btn-outline btn-sm">Mais <?= htmlspecialchars($post['categoria'] ?? '') ?></a>
+  </div>
+</div>
+
 <footer style="background:#aa6062;border-top:none">
   <div class="footer-inner">
     <div>
@@ -120,18 +132,5 @@
     <p style="color:rgba(255,250,250,.6)">escritora · criadora · especialista em marketing</p>
   </div>
 </footer>
-<script>
-function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
-async function handleSubmit(e){
-  e.preventDefault();
-  var btn=e.target.querySelector('button[type="submit"]');
-  btn.textContent='Enviando...';btn.disabled=true;
-  try{
-    var res=await fetch(e.target.action,{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}});
-    if(res.ok){e.target.reset();document.getElementById('form-success').style.display='block';btn.style.display='none';}
-    else{btn.textContent='Erro. Tente novamente.';btn.disabled=false;}
-  }catch(err){btn.textContent='Erro. Tente novamente.';btn.disabled=false;}
-}
-</script>
-</body>
-</html>
+<script>function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}</script>
+</body></html>
