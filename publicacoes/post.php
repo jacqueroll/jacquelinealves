@@ -113,7 +113,7 @@ $data_fmt = date('d \d\e F \d\e Y', strtotime($post['data'] ?? 'now'));
     <div>
       <h4 style="color:rgba(255,250,250,.6)">Newsletters</h4>
       <ul>
-        <li><a href="https://orbitandonomarketing.substack.com/" target="_blank" style="color:#FFFAFA;opacity:.85">Orbitando no Marketing</a></li>
+        <li><a href="https://orbitandonomarketing.com.br/insights/" target="_blank" style="color:#FFFAFA;opacity:.85">Orbitando no Marketing</a></li>
         <li><a href="https://depoiseuteconto.substack.com" target="_blank" style="color:#FFFAFA;opacity:.85">Depois Eu Te Conto</a></li>
         <li><a href="https://marriedtothemusic.substack.com" target="_blank" style="color:#FFFAFA;opacity:.85">Married to the Music</a></li>
       </ul>
